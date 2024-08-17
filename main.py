@@ -4,9 +4,14 @@ from great_tables import GT, html
 from great_tables.data import sza
 
 
-def get_sza_tbl():
+@st.cache_data
+def get_sza():
+    return pl.from_pandas(sza)
+
+
+def get_sza_gt():
     sza_pivot = (
-        pl.from_pandas(sza)
+        get_sza()
         .filter((pl.col("latitude") == "20") & (pl.col("tst") <= "1200"))
         .select(pl.col("*").exclude("latitude"))
         .drop_nulls()
@@ -29,4 +34,4 @@ def get_sza_tbl():
 
 
 st.title("Great Tables shown in Streamlit")
-st.write(get_sza_tbl().as_raw_html(), unsafe_allow_html=True)
+st.write(get_sza_gt().as_raw_html(), unsafe_allow_html=True)
