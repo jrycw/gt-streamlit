@@ -5,5 +5,5 @@ The code for integrating Great Tables with Streamlit is straightforward. The key
 streamlit run main.py
 ```
 
-![image](https://github.com/user-attachments/assets/4ce550b2-d344-4110-a4b6-fc16dea82971)
+![image](https://raw.githubusercontent.com/jrycw/gt-streamlit/refs/heads/master/gt-streamlit.png)
 
